@@ -7,13 +7,13 @@ import time
 import xml.etree.ElementTree as etree
 
 RUNDECK_HOST = 'http://localhost:4440/api'
-API_VERSION = 18
+API_VERSION = 39
 ACCESS_TOKEN = 'OCTQsSsvVFDeH64sFCuNf4XRo0W9OHap'
 
 root = '{host}/{version}'.format(host=RUNDECK_HOST, version=API_VERSION)
 
 def search_history(client, project, job_filter=None, offset=0, hmax=0):
-    request = 'history?project={p}&offset={o}&max={m}'.format(
+    request = 'project/{p}/history?offset={o}&max={m}'.format(
         p=project,
         o=offset,
         m=hmax,
